@@ -11,13 +11,8 @@ import jakarta.persistence.*;
 public class Recipe {
     @Id @GeneratedValue
     private Long recipeId;
-
-//    @NotBlank
-    @Column(unique = true)
-    private String title;
-
-    private String description;
-
+    private String recipeTitle;
+    private String recipeDescription;
     private String imageUrl;
 
 //    @ManyToOne
@@ -31,20 +26,20 @@ public class Recipe {
         this.recipeId = recipeId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRecipeTitle() {
+        return recipeTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setRecipeTitle(String recipeTitle) {
+        this.recipeTitle = recipeTitle;
     }
 
-    public String getDescription() {
-        return description;
+    public String getRecipeDescriptionDescription() {
+        return recipeDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRecipeDescriptionDescription(String recipeDescription) {
+        this.recipeDescription = recipeDescription;
     }
 
     public String getImageUrl() {

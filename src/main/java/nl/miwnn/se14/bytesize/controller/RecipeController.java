@@ -27,9 +27,9 @@ public class RecipeController {
 
     @GetMapping({"/", "/recipe/overview"})
     private String showRecipeOverview(Model datamodel) {
-        datamodel.addAttribute("newRecipe", new Recipe());
+        datamodel.addAttribute("allRecipes", recipeRepository.findAll());
 
-        return "recipeForm";
+        return "recipeOverview";
     }
 
     @GetMapping("/recipe/new")
@@ -42,7 +42,7 @@ public class RecipeController {
     @PostMapping("/recipe/new")
     private String saveOrUpdateRecipe(@ModelAttribute("newRecipe") Recipe recipeToBeSaved, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println(result.getAllErrors());
+            System.err.println(result.getAllErrors());
             return "redirect:/recipe/overview";
         }
 

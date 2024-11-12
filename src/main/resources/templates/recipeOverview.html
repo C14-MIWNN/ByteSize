@@ -9,6 +9,20 @@
 
 <div class="container">
     <h1>Overview of all recipes</h1>
+
+    <table>
+        <tr>
+            <th>Recipe</th>
+            <th></th>
+        </tr>
+        <tr th:each="recipe : ${allRecipes}">
+            <td th:text="${recipe.recipeTitle}"></td>
+
+            <td><a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}">delete</a></td>
+        </tr>
+    </table>
+
+    <a th:href="@{recipe/new}">Add new recipe</a>
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>
