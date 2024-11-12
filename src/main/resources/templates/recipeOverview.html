@@ -5,6 +5,8 @@
 </head>
 <body>
 
+<div th:replace="~{fragments/general :: searchbar}"></div>
+
 <div th:replace="~{fragments/general :: navbar}"></div>
 
 <div class="container">
@@ -15,7 +17,7 @@
             <th>Recipe</th>
         </tr>
         <tr th:each="recipe : ${allRecipes}">
-            <td th:text="${recipe.recipeName}"></td>
+            <td th:text="${recipe.recipeTitle}"></td>
         </tr>
     </table>
 </div>

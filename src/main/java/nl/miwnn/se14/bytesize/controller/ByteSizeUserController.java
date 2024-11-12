@@ -1,5 +1,6 @@
 package nl.miwnn.se14.bytesize.controller;
 
+import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import nl.miwnn.se14.bytesize.service.ByteSizeUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class ByteSizeUserController {
     @GetMapping("/overview")
     public String showUserOverview(Model datamodel) {
         datamodel.addAttribute("allUsers", byteSizeUserService.getAllUsers());
+        datamodel.addAttribute("formUser", new ByteSizeUser());
 
         return "userOverview";
     }
