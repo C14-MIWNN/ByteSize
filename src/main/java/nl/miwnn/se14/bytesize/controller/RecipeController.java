@@ -42,7 +42,7 @@ public class RecipeController {
     @PostMapping("/recipe/new")
     private String saveOrUpdateRecipe(@ModelAttribute("newRecipe") Recipe recipeToBeSaved, BindingResult result) {
         if (result.hasErrors()) {
-            System.out.println(result.getAllErrors());
+            System.err.println(result.getAllErrors());
             return "redirect:/recipe/overview";
         }
 
