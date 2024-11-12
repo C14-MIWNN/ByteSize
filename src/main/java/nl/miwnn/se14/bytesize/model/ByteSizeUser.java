@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -48,7 +49,7 @@ public class ByteSizeUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     public Long getUserId() {
@@ -59,7 +60,7 @@ public class ByteSizeUser implements UserDetails {
         this.userId = userId;
     }
 
-    @Override
+
     public String getUsername() {
         return username;
     }
@@ -68,7 +69,7 @@ public class ByteSizeUser implements UserDetails {
         this.username = username;
     }
 
-    @Override
+
     public String getPassword() {
         return password;
     }
