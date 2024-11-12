@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
+    <title>recipeForm.html</title>
+</head>
+<body>
+
+<div th:replace="~{fragments/general :: navbar}"></div>
+
+<div class="container">
+
+    <h1>Create new recipe</h1>
+
+    <form th:action="@{/recipe/new}" method="post" th:object="${newRecipe}">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" th:field="#{title}"/></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Save Recipe" />
+    </form>
+
+<a th:href="@{/recipe/overview}">Go back tot the overview</a>
+
+</div>
+
+<div th:replace="~{fragments/general :: footer}"></div>
+<div th:replace="~{fragments/general :: bottomScripts}"></div>
+
+</body>
+</html>
