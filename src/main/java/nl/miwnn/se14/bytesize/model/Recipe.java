@@ -13,11 +13,8 @@ public class Recipe {
     private Long recipeId;
 
 //    @NotBlank
-    @Column(unique = true)
     private String recipeTitle;
-
     private String recipeDescription;
-
     private String imageUrl;
 
 //    @ManyToOne
