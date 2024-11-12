@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
-    <title>Recipe Overview.html</title>
+    <title>Recipe Overview</title>
 </head>
 <body>
 
@@ -9,6 +9,15 @@
 
 <div class="container">
     <h1>Overview of all recipes</h1>
+
+    <table>
+        <tr>
+            <th>Recipe</th>
+        </tr>
+        <tr th:each="recipe : ${allRecipes}">
+            <td th:text="${recipe.recipeName}"></td>
+        </tr>
+    </table>
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>

@@ -14,9 +14,9 @@ public class Recipe {
 
 //    @NotBlank
     @Column(unique = true)
-    private String title;
+    private String recipeTitle;
 
-    private String description;
+    private String recipeDescription;
 
     private String imageUrl;
 
@@ -31,20 +31,20 @@ public class Recipe {
         this.recipeId = recipeId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRecipeTitle() {
+        return recipeTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setRecipeTitle(String recipeTitle) {
+        this.recipeTitle = recipeTitle;
     }
 
-    public String getDescription() {
-        return description;
+    public String getRecipeDescription() {
+        return recipeDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRecipeDescription(String recipeDescription) {
+        this.recipeDescription = recipeDescription;
     }
 
     public String getImageUrl() {
