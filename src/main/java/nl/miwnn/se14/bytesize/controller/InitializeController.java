@@ -1,11 +1,16 @@
 package nl.miwnn.se14.bytesize.controller;
 
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
+import nl.miwnn.se14.bytesize.model.Recipe;
 import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
+import nl.miwnn.se14.bytesize.repositories.RecipeRepository;
 import nl.miwnn.se14.bytesize.service.ByteSizeUserService;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
+
+import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * @author Heron
@@ -16,11 +21,13 @@ import org.springframework.stereotype.Controller;
 public class InitializeController {
     private final ByteSizeUserService byteSizeUserService;
     private final ByteSizeUserRepository byteSizeUserRepository;
+    private final RecipeRepository recipeRepository;
 
     public InitializeController(ByteSizeUserService byteSizeUserService,
-                                ByteSizeUserRepository byteSizeUserRepository) {
+                                ByteSizeUserRepository byteSizeUserRepository, RecipeRepository recipeRepository) {
         this.byteSizeUserService = byteSizeUserService;
         this.byteSizeUserRepository = byteSizeUserRepository;
+        this.recipeRepository = recipeRepository;
     }
 
     @EventListener
@@ -32,6 +39,21 @@ public class InitializeController {
 
     private void initializeDB() {
         makeByteSizeUser("Admin", "Admin");
+
+        Recipe indianChickenCurry = makeRecipe("Indian Chicken Curry");
+        Recipe beefSteak = makeRecipe("Beef Steak");
+        Recipe chickenLiverWrappedInBacon = makeRecipe("Chicken Liver Wrapped In Bacon");
+        Recipe fruitSaladWithYoghurt = makeRecipe("Fruit Salad With Yoghurt");
+        Recipe bestCheesecakeEver = makeRecipe("Best Cheesecake Ever");
+    }
+
+    private Recipe makeRecipe(String recipeTitle, String recipeDescription) {
+        Recipe recipe = new Recipe();
+        recipe.setRecipeTitle(recipeTitle);
+        recipe.setRecipeDescription(recipeDescription);
+
+        recipeRepository.save(recipe);
+        return recipe;
     }
 
     private ByteSizeUser makeByteSizeUser(String username, String password) {

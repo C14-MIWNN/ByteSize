@@ -15,9 +15,7 @@ public class Recipe {
 //    @NotBlank
     @Column(unique = true)
     private String recipeTitle;
-
     private String recipeDescription;
-
     private String imageUrl;
 
 //    @ManyToOne
