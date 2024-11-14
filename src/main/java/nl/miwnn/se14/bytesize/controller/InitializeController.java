@@ -40,11 +40,11 @@ public class InitializeController {
     private void initializeDB() {
         makeByteSizeUser("Admin", "Admin");
 
-        Recipe indianChickenCurry = makeRecipe("Indian Chicken Curry");
-        Recipe beefSteak = makeRecipe("Beef Steak");
-        Recipe chickenLiverWrappedInBacon = makeRecipe("Chicken Liver Wrapped In Bacon");
-        Recipe fruitSaladWithYoghurt = makeRecipe("Fruit Salad With Yoghurt");
-        Recipe bestCheesecakeEver = makeRecipe("Best Cheesecake Ever");
+        Recipe indianChickenCurry = makeRecipe("Indian Chicken Curry", "Bla bla bla");
+        Recipe beefSteak = makeRecipe("Beef Steak", "Bla bla bla");
+        Recipe chickenLiverWrappedInBacon = makeRecipe("Chicken Liver Wrapped In Bacon", "Bla bla bla");
+        Recipe fruitSaladWithYoghurt = makeRecipe("Fruit Salad With Yoghurt", "Bla bla bla");
+        Recipe bestCheesecakeEver = makeRecipe("Best Cheesecake Ever", "Bla bla bla");
     }
 
     private Recipe makeRecipe(String recipeTitle, String recipeDescription) {
