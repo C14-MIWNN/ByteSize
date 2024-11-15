@@ -7,6 +7,7 @@
 
 <div th:replace="~{fragments/general :: navbar}"></div>
 
+<div class="main">
 <div class="container">
     <h1>Overview of all recipes</h1>
 
@@ -23,10 +24,12 @@
     </table>
 
     <a th:href="@{/recipe/new}">Add new recipe</a>
+
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>
 <div th:replace="~{fragments/general :: bottomScripts}"></div>
+
 </div>
 </body>
 </html>

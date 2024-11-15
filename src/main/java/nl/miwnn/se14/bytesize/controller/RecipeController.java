@@ -39,6 +39,17 @@ public class RecipeController {
         return "recipeForm";
     }
 
+    @GetMapping("/recipe/detail/{recipeTitle}")
+    private String showRecipeDetailPage(@PathVariable("recipeTitle") String recipeTitle, Model datamodel) {
+        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeTitle(recipeTitle);
+
+        if (recipeOptional.isEmpty()) {
+            return "redirect:/recipe/overview";
+        }
+
+        return "recipeDetail";
+    }
+
     @PostMapping("/recipe/new")
     private String saveOrUpdateRecipe(@ModelAttribute("newRecipe") Recipe recipeToBeSaved, BindingResult result) {
         if (result.hasErrors()) {
