@@ -1,6 +1,7 @@
 package nl.miwnn.se14.bytesize.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * @author Yvonne.
@@ -12,13 +13,15 @@ public class Recipe {
     @Id @GeneratedValue
     private Long recipeId;
 
-//    @NotBlank
+    @NotBlank
     private String recipeTitle;
+
+    @Column(columnDefinition = "TEXT")
     private String recipeDescription;
     private String imageUrl;
 
-//    @ManyToOne
-//    private User user;
+    @ManyToOne
+    private ByteSizeUser byteSizeUser;
 
     public Long getRecipeId() {
         return recipeId;
