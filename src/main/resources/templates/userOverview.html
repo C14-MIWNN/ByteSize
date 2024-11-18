@@ -7,6 +7,7 @@
 
 <div th:replace="~{fragments/general :: navbar}"></div>
 
+<div class="main">
 <div class="container">
     <h1>Overview of all users</h1>
 
@@ -15,7 +16,6 @@
     </ul>
 
     <form class="row g-3" th:action="@{/user/save}" method="post" th:object="${formUser}">
-        <input type="hidden" th:field="*{userId}">
         <div class="row g-3 align-items-center">
             <div class="col-5">
                 <label for="username" class="col-form-label">Username</label>
@@ -32,7 +32,15 @@
                 <label for="password" class="col-form-label">Password</label>
             </div>
             <div class="col-7">
-                <input type="text" id="password" class="form-control" aria-describedby="passwordHelpInline" th:field="*{password}">
+                <input type="password" id="password" class="form-control" aria-describedby="passwordHelpInline" th:field="*{password}">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-5">
+                <label for="passwordConfirm" class="col-form-label">Confirm password</label>
+            </div>
+            <div class="col-7">
+                <input type="password" id="passwordConfirm" class="form-control" aria-describedby="passwordHelpInline" th:field="*{passwordConfirm}">
             </div>
             <div class="col-12">
                 <span id="passwordHelpInline" class="form-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
@@ -42,6 +50,7 @@
         <button type="submit" class="btn btn-primary mb-3">Save user</button>
     </form>
 
+</div>
 </div>
 
 

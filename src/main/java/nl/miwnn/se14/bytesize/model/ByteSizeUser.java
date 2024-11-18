@@ -23,11 +23,8 @@ public class ByteSizeUser implements UserDetails {
     @Id @GeneratedValue
     private Long userId;
 
-    @NotBlank
     @Column(unique = true)
     private String username;
-
-    @NotBlank
     private String password;
 
 

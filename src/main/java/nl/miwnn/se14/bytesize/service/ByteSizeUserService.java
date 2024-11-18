@@ -1,7 +1,9 @@
 package nl.miwnn.se14.bytesize.service;
 
+import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
+import nl.miwnn.se14.bytesize.service.mapper.ByteSizeUserMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,6 +37,14 @@ public class ByteSizeUserService implements UserDetailsService {
         } else {
             throw new UsernameNotFoundException(String.format("User %s was not found.", username));
         }
+    }
+
+    public boolean usernameInUse(String username) {
+        return byteSizeUserRepository.findByUsername(username).isPresent();
+    }
+
+    public void save(ByteSizeUserDTO userDTO) {
+        save(ByteSizeUserMapper.fromDTO(userDTO));
     }
 
     public void save(ByteSizeUser user) {

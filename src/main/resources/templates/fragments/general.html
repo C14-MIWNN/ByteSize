@@ -11,13 +11,22 @@
 
 
 <div th:fragment="navbar">
-    <nav class="navbar bg-body-tertiary fixed-top">
+    <nav class="navbar fixed-top" style="background-color: #FFFFFF;">
         <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
+            <a class="navbar-brand" th:href="@{/recipe/overview}">ByteSize</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-secondary" type="submit">Search</button>
             </form>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/user/overview}">Users</a>
+            </li>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+                <a class="nav-link" th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+                <a class="nav-link" th:href="@{/logout}">Logout <span sec:authentication="name"></span></a>
+            </li>
         </div>
     </nav>
 </div>
