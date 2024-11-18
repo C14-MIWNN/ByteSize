@@ -11,14 +11,14 @@
 <div class="container">
     <h1>Overview of all recipes</h1>
 
-    <table>
+    <table class="table table-striped">
         <tr>
             <th>Recipe</th>
             <th></th>
         </tr>
         <tr th:each="recipe : ${allRecipes}">
             <td><a th:href="@{/recipe/detail/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}" th:text="${recipe.recipeTitle}"></td>
-            <td><a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}">delete</a></td>
+            <td><a th:href="@{/recipe/delete/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">delete</a></td>
         </tr>
     </table>
 

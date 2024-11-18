@@ -77,9 +77,9 @@ public class RecipeController {
         return "redirect:/recipe/overview";
     }
 
-    @GetMapping("/recipe/delete/{recipeId}")
-    private String deleteRecipe(@PathVariable("recipeId") Long recipeId) {
-        recipeRepository.deleteById(recipeId);
+    @GetMapping("/recipe/delete/{recipeTitle}")
+    private String deleteRecipe(@PathVariable("recipeTitle") String recipeTitle) {
+        recipeRepository.findByRecipeTitle(recipeTitle).ifPresent((recipeRepository::delete));
         return "redirect:/recipe/overview";
     }
 }
