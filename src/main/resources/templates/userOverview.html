@@ -15,14 +15,12 @@
         <li th:each="user : ${allUsers}" th:text="${user.username}"></li>
     </ul>
     <button type="button"
-            class="btn btn-outline-secondary btn-lg px-4 fw-bold"
-            data-bs-toggle="modal" data-bs-target="#newForm">
-        <i class="bi bi-pencil-square"></i> Add User
+            class="btn btn-custom btn-lg px-4 fw-bold"
+            data-bs-toggle="modal" data-bs-target="#newForm">Add User
     </button>
 </div>
 
 </div>
-
 
 <div th:replace="~{fragments/general :: footer}"></div>
 <div th:replace="~{fragments/general :: bottomScripts}"></div>
