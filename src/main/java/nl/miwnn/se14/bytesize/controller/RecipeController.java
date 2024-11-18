@@ -34,9 +34,7 @@ public class RecipeController {
 
     @GetMapping("/recipe/new")
     private String showRecipeForm(Model datamodel) {
-        datamodel.addAttribute("newRecipe", new Recipe());
-
-        return "recipeForm";
+        return setupRecipeForm(datamodel, new Recipe());
     }
 
     @GetMapping("/recipe/detail/{recipeTitle}")
@@ -47,11 +45,29 @@ public class RecipeController {
             return "redirect:/recipe/overview";
         }
 
+        datamodel.addAttribute("recipe", recipeOptional.get());
         return "recipeDetail";
     }
 
+    @GetMapping("/recipe/edit/{recipeTitle}")
+    private String showRecipeEditPage(@PathVariable("recipeTitle") String recipeTitle, Model datamodel) {
+        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeTitle(recipeTitle);
+
+        if (recipeOptional.isEmpty()) {
+            return "redirect:/recipe/overview";
+        }
+
+        return setupRecipeForm(datamodel, recipeOptional.get());
+    }
+
+    private String setupRecipeForm(Model datamodel, Recipe recipeOptional) {
+        datamodel.addAttribute("formRecipe", recipeOptional);
+
+        return "recipeForm";
+    }
+
     @PostMapping("/recipe/new")
-    private String saveOrUpdateRecipe(@ModelAttribute("newRecipe") Recipe recipeToBeSaved, BindingResult result) {
+    private String saveOrUpdateRecipe(@ModelAttribute("formRecipe") Recipe recipeToBeSaved, BindingResult result) {
         if (result.hasErrors()) {
             System.err.println(result.getAllErrors());
             return "redirect:/recipe/overview";

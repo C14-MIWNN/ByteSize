@@ -40,17 +40,18 @@ public class InitializeController {
     private void initializeDB() {
         makeByteSizeUser("Admin", "Admin");
 
-        Recipe indianChickenCurry = makeRecipe("Indian Chicken Curry", "Bla bla bla");
-        Recipe beefSteak = makeRecipe("Beef Steak", "Bla bla bla");
-        Recipe chickenLiverWrappedInBacon = makeRecipe("Chicken Liver Wrapped In Bacon", "Bla bla bla");
-        Recipe fruitSaladWithYoghurt = makeRecipe("Fruit Salad With Yoghurt", "Bla bla bla");
-        Recipe bestCheesecakeEver = makeRecipe("Best Cheesecake Ever", "Bla bla bla");
+        Recipe indianChickenCurry = makeRecipe("Indian Chicken Curry", "Bla bla bla", "imageUrl");
+        Recipe beefSteak = makeRecipe("Beef Steak", "Bla bla bla", "imageUrl");
+        Recipe chickenLiverWrappedInBacon = makeRecipe("Chicken Liver Wrapped In Bacon", "Bla bla bla", "imageUrl");
+        Recipe fruitSaladWithYoghurt = makeRecipe("Fruit Salad With Yoghurt", "Bla bla bla", "imageUrl");
+        Recipe bestCheesecakeEver = makeRecipe("Best Cheesecake Ever", "Bla bla bla", "imageUrl");
     }
 
-    private Recipe makeRecipe(String recipeTitle, String recipeDescription) {
+    private Recipe makeRecipe(String recipeTitle, String recipeDescription, String imageUrl) {
         Recipe recipe = new Recipe();
         recipe.setRecipeTitle(recipeTitle);
         recipe.setRecipeDescription(recipeDescription);
+        recipe.setImageUrl(imageUrl);
 
         recipeRepository.save(recipe);
         return recipe;
