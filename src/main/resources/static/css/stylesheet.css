@@ -3,17 +3,48 @@ h1 {
 }
 
 html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: 70px;
+}
+
+body {
+    background-color: #D1C0AF;
+}
+
+.table-striped>tbody>tr>td,
+.table-striped>tbody>tr>th {
+    background-color: #D1C0AF;
+    border-bottom: none;
 }
 
 .navbar-inner {
     background:transparent;
 }
 
+.nav-link {
+    color: #111111;
+}
+
+.nav-link:hover {
+    color: #FF0000;
+}
+
+.topnav a {
+    float: left;
+    color: #111111;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav-right {
+    float: right;
+}
+
 .sidenav {
     height: 100%;
     width: 160px;
-    margin-top: 60px;
+    margin-top: 70px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -27,7 +58,7 @@ html {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
-    color: #111;
+    color: #111111;
     display: block;
 }
 
@@ -38,7 +69,7 @@ html {
 .main {
     margin-left: 160px;
     margin-right: 160px;
-    margin-top: 100px;
+    margin-top: 70px;
     padding: 0px 10px;
     border: 1px ridge;
 }
