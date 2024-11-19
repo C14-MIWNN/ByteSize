@@ -11,9 +11,20 @@
 <div class="container">
     <h1>Overview of all users</h1>
 
-    <ul>
-        <li th:each="user : ${allUsers}" th:text="${user.username}"></li>
-    </ul>
+    <table class="table table-striped">
+        <tr>
+            <th>User</th>
+            <th></th>
+            <th>Number of recipes</th>
+            <th>Remove user</th>
+        </tr>
+        <tr th:each="user : ${allUsers}">
+            <td><a th:href="@{/user/details/{username}(username = ${user.username})}" th:text="${user.username}"></a></td>
+            <td></td>
+            <td th:text="${user.numberOfRecipes}"></td>
+            <td><a th:href="@{/user/delete/{username}(username = ${user.username})}">Delete</a></td>
+        </tr>
+        </table>
     <button type="button"
             class="btn btn-custom btn-lg px-4 fw-bold"
             data-bs-toggle="modal" data-bs-target="#newForm">Add User

@@ -3,14 +3,14 @@ package nl.miwnn.se14.bytesize.controller;
 import jakarta.validation.Valid;
 import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
+import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
 import nl.miwnn.se14.bytesize.service.ByteSizeUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 /**
  * @author Heron
@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class ByteSizeUserController {
     private final ByteSizeUserService byteSizeUserService;
+    private final ByteSizeUserRepository byteSizeUserRepository;
 
-    public ByteSizeUserController(ByteSizeUserService byteSizeUserService) {
+    public ByteSizeUserController(ByteSizeUserService byteSizeUserService, ByteSizeUserRepository byteSizeUserRepository) {
         this.byteSizeUserService = byteSizeUserService;
+        this.byteSizeUserRepository = byteSizeUserRepository;
     }
 
     @GetMapping("/overview")
@@ -33,6 +35,19 @@ public class ByteSizeUserController {
         datamodel.addAttribute("formModalHidden", true);
 
         return "userOverview";
+    }
+
+    @GetMapping("/details/{username}")
+    public String showUserDetailPage(@PathVariable("username") String username, Model datamodel) {
+        Optional<ByteSizeUser> byteSizeUser = byteSizeUserRepository.findByUsername(username);
+
+        if (byteSizeUser.isEmpty()) {
+            return "redirect:/overview";
+        }
+
+        datamodel.addAttribute("byteSizeUserToBeShown", byteSizeUser.get());
+
+        return "userDetails";
     }
 
     @PostMapping("/save")
@@ -52,6 +67,12 @@ public class ByteSizeUserController {
         }
 
         byteSizeUserService.save(userDtoToBeSaved);
+        return "redirect:/user/overview";
+    }
+
+    @GetMapping("/delete/{username}")
+    private String deleteUser(@PathVariable("username") String username) {
+        byteSizeUserRepository.findByUsername(username).ifPresent((byteSizeUserRepository::delete));
         return "redirect:/user/overview";
     }
 
