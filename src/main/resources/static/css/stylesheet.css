@@ -6,6 +6,24 @@ html {
     scroll-padding-top: 100px;
 }
 
+body {
+    background-color: #D1C0AF;
+}
+
+.main {
+    margin-left: 160px;
+    margin-right: 160px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    padding: 0px 10px;
+    border: 1px ridge;
+}
+
+.nav-item {
+    margin-left:30px;
+    margin-right:30px;
+}
+
 .navbar-inner {
     background:transparent;
 }
@@ -35,20 +53,10 @@ html {
     color: #FF0000;
 }
 
-.main {
-    margin-left: 160px;
-    margin-right: 160px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    padding: 0px 10px;
-    border: 1px ridge;
-
-}
-
 .btn-custom {
     min-width: 100px;
     background-color: transparent;
-    color: #FF0000;
+    color: #ff0000;
     border-radius: 1px;
     text-decoration: none;
     opacity:1.0;
@@ -58,4 +66,10 @@ html {
 .btn-custom:hover {
     color: black;
     background-color: #FF0000;
+}
+
+.table-striped>tbody>tr>td,
+.table-striped>tbody>tr>th {
+    background-color: #D1C0AF;
+    border-bottom: none;
 }
