@@ -15,10 +15,12 @@
         <tr>
             <th>Recipe</th>
             <th></th>
+            <th></th>
         </tr>
         <tr th:each="recipe : ${allRecipes}">
             <td><a th:href="@{/recipe/detail/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}" th:text="${recipe.recipeTitle}"></td>
             <td><a th:href="@{/recipe/delete/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">delete</a></td>
+            <td><a th:href="@{/recipe/edit/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">edit</a></td>
         </tr>
     </table>
 

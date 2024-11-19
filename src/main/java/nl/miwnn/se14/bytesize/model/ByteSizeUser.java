@@ -27,7 +27,6 @@ public class ByteSizeUser implements UserDetails {
     private String username;
     private String password;
 
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
