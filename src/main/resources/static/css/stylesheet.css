@@ -13,7 +13,7 @@ body {
 .main {
     margin-left: 10em;
     margin-right: 10em;
-    margin-top: 4em;
+    margin-top: 10em;
     margin-bottom: 4em;
     padding: 4em 4em;
     border: 0.1em ridge;
@@ -21,17 +21,17 @@ body {
 
 .nav-item {
     margin-left: 3em;
-    margin-right: 3em;
 }
 
-.navbar-inner {
-    background:transparent;
+.navbar{
+    margin-top: 2em;
+    background: #D1C0AF;
 }
 
 .sidenav {
     height: 100%;
     width: 10em;
-    margin-top: 4em;
+    margin-top: 10em;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -51,6 +51,11 @@ body {
 
 .sidenav a:hover {
     color: #FF0000;
+}
+
+.modal-body,
+.modal-title {
+    background-color: #D1C0AF;
 }
 
 .btn-custom {
