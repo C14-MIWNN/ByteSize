@@ -18,7 +18,7 @@
     </div>
 
     <h1><span th:text="${recipe.recipeTitle}"></span></h1>
-    <a th:href="@{/recipe/new}" class="btn btn-primary mb-3">Add new recipe</a>
+
 
     <ul>
         <li><a th:href="@{/recipe/delete/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">Delete Recipe</a></li>
