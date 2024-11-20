@@ -49,17 +49,6 @@ public class RecipeController {
         return "recipeDetail";
     }
 
-    @GetMapping("/recipe/edit/{recipeTitle}")
-    private String showRecipeEditPage(@PathVariable("recipeTitle") String recipeTitle, Model datamodel) {
-        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeTitle(recipeTitle);
-
-        if (recipeOptional.isEmpty()) {
-            return "redirect:/recipe/overview";
-        }
-
-        return setupRecipeForm(datamodel, recipeOptional.get());
-    }
-
     private String setupRecipeForm(Model datamodel, Recipe recipeOptional) {
         datamodel.addAttribute("formRecipe", recipeOptional);
 
