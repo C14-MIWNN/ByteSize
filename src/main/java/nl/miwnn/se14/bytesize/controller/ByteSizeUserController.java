@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * @author Heron
- * Purpose for the class
+ * Handles requests related to the user
  */
 
 @Controller
@@ -23,7 +23,8 @@ public class ByteSizeUserController {
     private final ByteSizeUserService byteSizeUserService;
     private final ByteSizeUserRepository byteSizeUserRepository;
 
-    public ByteSizeUserController(ByteSizeUserService byteSizeUserService, ByteSizeUserRepository byteSizeUserRepository) {
+    public ByteSizeUserController(ByteSizeUserService byteSizeUserService,
+                                  ByteSizeUserRepository byteSizeUserRepository) {
         this.byteSizeUserService = byteSizeUserService;
         this.byteSizeUserRepository = byteSizeUserRepository;
     }
