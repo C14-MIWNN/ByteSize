@@ -17,7 +17,12 @@
         <a href="#step-3">Step Three</a>
     </div>
 
-    <h1 Detail for recipe <span th:text="${recipe.recipeTitle}"></span></h1>
+    <h1><span th:text="${recipe.recipeTitle}"></span></h1>
+    <a th:href="@{/recipe/new}" class="btn btn-primary mb-3">Add new recipe</a>
+
+    <ul>
+        <li><a th:href="@{/recipe/delete/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">Delete Recipe</a></li>
+    </ul>
 
     <h2 id="ingredients">INGREDIENTS</h2>
     <p>
