@@ -8,7 +8,7 @@
 
 <div th:fragment="recipeCard(recipe)" class="col">
     <div class="card h-100">
-        <a th:href="@{/recipe/detail/{recipeTitle}(recipeTitle = ${recipe.recipeTitle})}">
+        <a th:href="@{/recipe/detail/{recipeId}(recipeId = ${recipe.recipeId})}">
             <img height="300px" th:src="${recipe.imageUrl}" class="card-img-top object-fit-cover" th:alt="|Cover for ${recipe.recipeTitle}|">
         </a>
         <div class="card-header">
