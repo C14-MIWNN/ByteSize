@@ -14,9 +14,9 @@
 <div th:fragment="navbar">
     <nav class="navbar fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/recipe/overview}">ByteSize</a>
+            <a class="navbar-brand" th:href="@{/}">ByteSize</a>
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row justify-content-left">
                     <div class="col-md-4">
                         <div class="search-container">
                             <input type="text" class="form-control search-input" placeholder="Search...">
@@ -25,6 +25,9 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
+                <a class="nav-item">
+                    <a class="nav-link" th:href="@{/recipe/overview}">Recipe Overview</a>
+                </a>
                 <a class="nav-item">
                     <a class="nav-link" th:href="@{/user/overview}">Users</a>
                 </a>

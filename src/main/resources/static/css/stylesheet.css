@@ -1,5 +1,10 @@
 h1 {
     color: #FF0000;
+    margin-top: -1.6em;
+    position: fixed;
+    z-index: 1000;
+    width: 75%;
+    background: #D1C0AF;
 }
 
 html {
@@ -17,6 +22,8 @@ body {
     margin-bottom: 4em;
     padding: 4em 4em;
     border: 0.1em ridge;
+    overflow: scroll;
+    height: 39em;
 }
 
 .nav-item {
