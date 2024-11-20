@@ -13,7 +13,6 @@
     <h1>Create new recipe</h1>
 
     <form class="row g-3" th:action="@{/recipe/new}" method="post" th:object="${formRecipe}">
-        <input type="hidden" th:field="*{recipeTitle}">
         <div class="row g-3 align-items-center">
             <div class="col-2">
                 <label for="recipeTitle" class="col-form-label">Title</label>

@@ -37,9 +37,9 @@ public class RecipeController {
         return setupRecipeForm(datamodel, new Recipe());
     }
 
-    @GetMapping("/recipe/detail/{recipeTitle}")
-    private String showRecipeDetailPage(@PathVariable("recipeTitle") String recipeTitle, Model datamodel) {
-        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeTitle(recipeTitle);
+    @GetMapping("/recipe/detail/{recipeId}")
+    private String showRecipeDetailPage(@PathVariable("recipeId") Long recipeId, Model datamodel) {
+        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeId(recipeId);
 
         if (recipeOptional.isEmpty()) {
             return "redirect:/recipe/overview";
@@ -66,9 +66,9 @@ public class RecipeController {
         return "redirect:/recipe/overview";
     }
 
-    @GetMapping("/recipe/delete/{recipeTitle}")
-    private String deleteRecipe(@PathVariable("recipeTitle") String recipeTitle) {
-        recipeRepository.findByRecipeTitle(recipeTitle).ifPresent((recipeRepository::delete));
+    @GetMapping("/recipe/delete/{recipeId}")
+    private String deleteRecipe(@PathVariable("recipeId") Long recipeId) {
+        recipeRepository.findByRecipeId(recipeId).ifPresent((recipeRepository::delete));
         return "redirect:/recipe/overview";
     }
 }
