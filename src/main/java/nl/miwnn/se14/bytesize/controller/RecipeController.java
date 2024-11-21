@@ -62,6 +62,7 @@ public class RecipeController {
 
     private String setupRecipeForm(Model datamodel, Recipe recipeOptional) {
         datamodel.addAttribute("formRecipe", recipeOptional);
+        datamodel.addAttribute("searchForm", new Recipe());
 
         return "recipeForm";
     }
@@ -82,4 +83,5 @@ public class RecipeController {
         recipeRepository.findByRecipeId(recipeId).ifPresent((recipeRepository::delete));
         return "redirect:/recipe/overview";
     }
+
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 <head th:fragment="baseHeader(title)">
     <meta charset="UTF-8">
     <title th:replace="${title}"></title>
@@ -19,7 +20,6 @@
                 <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="search-button">
                 <button class="btn btn-secondary" type="button" id="search-button"><i class="bi bi-search"></i></button>
             </div>
-
             <div class="d-flex justify-content-end">
                 <a class="nav-item">
                     <a class="nav-link" th:href="@{/recipe/overview}">Recipe Overview</a>
@@ -28,7 +28,7 @@
                     <a class="nav-link" th:href="@{/user/overview}">Users</a>
                 </a>
                 <a class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
+                    <a class="nav-link" th:href="@{/login}"><i class="bi bi-person-circle h2"></i>Login</a>
                 </a>
                 <div class="dropdown" sec:authorize="hasRole('ROLE_USER')">
                     <a class="btn btn-custom2" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
