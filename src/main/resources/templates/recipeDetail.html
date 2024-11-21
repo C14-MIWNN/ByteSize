@@ -19,9 +19,11 @@
 
     <h1><span th:text="${recipe.recipeTitle}"></span></h1>
 
-
     <ul>
-        <li><a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}">Delete Recipe</a></li>
+        <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-danger mb-3">Delete Recipe</a>
+    </ul>
+    <ul>
+        <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-danger mb-3">Edit Recipe</a>
     </ul>
 
     <h2 id="ingredients">INGREDIENTS</h2>
