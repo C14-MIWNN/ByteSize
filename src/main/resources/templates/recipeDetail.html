@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
-    <title th:text="|${recipe.recipeTitle}|">"</title>
+    <title>recipeDetail.html</title>
 </head>
 <body>
 
@@ -19,9 +19,11 @@
 
     <h1><span th:text="${recipe.recipeTitle}"></span></h1>
 
-
     <ul>
-        <li><a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}">Delete Recipe</a></li>
+        <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-danger mb-3">Delete Recipe</a>
+    </ul>
+    <ul>
+        <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-danger mb-3">Edit Recipe</a>
     </ul>
 
     <h2 id="ingredients">INGREDIENTS</h2>

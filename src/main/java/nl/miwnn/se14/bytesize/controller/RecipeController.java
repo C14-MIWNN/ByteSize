@@ -37,6 +37,17 @@ public class RecipeController {
         return setupRecipeForm(datamodel, new Recipe());
     }
 
+    @GetMapping("/recipe/edit/{recipeId}")
+    private String showRecipeEditPage(@PathVariable("recipeId") Long recipeId, Model datamodel) {
+        Optional<Recipe> recipeOptional = recipeRepository.findByRecipeId(recipeId);
+
+        if (recipeOptional.isEmpty()) {
+            return "redirect:/recipe/detail";
+        }
+
+        return setupRecipeForm(datamodel, recipeOptional.get());
+    }
+
     @GetMapping("/recipe/detail/{recipeId}")
     private String showRecipeDetailPage(@PathVariable("recipeId") Long recipeId, Model datamodel) {
         Optional<Recipe> recipeOptional = recipeRepository.findByRecipeId(recipeId);

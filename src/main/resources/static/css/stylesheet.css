@@ -3,12 +3,8 @@ h1 {
     margin-top: -1.6em;
     position: fixed;
     z-index: 1000;
-    width: 75%;
+    width: fit-content;
     background: #D1C0AF;
-}
-
-html {
-    scroll-padding-top: 3.5em;
 }
 
 body {
@@ -16,22 +12,30 @@ body {
 }
 
 .main {
-    margin-left: 10em;
+    scroll-padding: 3.5em;
+    margin-left: 15em;
     margin-right: 10em;
     margin-top: 10em;
     margin-bottom: 4em;
     padding: 4em 4em;
     border: 0.1em ridge;
     overflow: scroll;
+    overflow-x: hidden;
     height: 39em;
+
 }
 
 .nav-item {
     margin-left: 3em;
 }
 
-.navbar{
+.dropdown {
+    margin-left: 3em;
+}
+
+.navbar {
     margin-top: 2em;
+    vertical-align: middle;
     background: #D1C0AF;
 }
 
