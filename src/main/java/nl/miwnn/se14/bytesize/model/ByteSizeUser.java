@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  * @author Heron
- * Purpose for the class
+ * Defines a user able to log in
  */
 
 @Entity
