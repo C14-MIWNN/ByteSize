@@ -8,10 +8,8 @@
 <div th:replace="~{fragments/general :: navbar}"></div>
 
 <div class="main">
-<div class="container">
     <h1>Overview of all recipes</h1>
-
-    <h2>Recipes</h2>
+<div class="container">
 
     <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
 

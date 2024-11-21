@@ -8,6 +8,7 @@
 <div th:replace="~{fragments/general :: navbar}"></div>
 
 <div class="main">
+    <h1><span th:text="${recipe.recipeTitle}"></span></h1>
 <div class="container">
 
     <div class="sidenav">
@@ -17,7 +18,7 @@
         <a href="#step-3">Step Three</a>
     </div>
 
-    <h1><span th:text="${recipe.recipeTitle}"></span></h1>
+
 
     <ul>
         <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-danger mb-3">Delete Recipe</a>

@@ -1,9 +1,10 @@
 h1 {
-    color: #FF0000;
+    color: #2E3336;
     margin-top: -1.6em;
     position: fixed;
     z-index: 1000;
     width: fit-content;
+    height: 1.5em;
     background: #D1C0AF;
 }
 
