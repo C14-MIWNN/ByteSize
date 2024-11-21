@@ -3,7 +3,7 @@
 <body>
 
 <div th:fragment="recipeCards(recipes)" class="row row-cols-1 row-cols-md-6 g-4">
-    <div th:each="recipe : ${recipes}" th:include="~{:: recipeCard(${recipe})}"></div>
+    <div th:each="recipe : ${recipes}" th:insert="~{:: recipeCard(${recipe})}"></div>
 </div>
 
 <div th:fragment="recipeCard(recipe)" class="col">

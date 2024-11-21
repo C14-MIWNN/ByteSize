@@ -15,13 +15,11 @@
         <tr>
             <th>User</th>
             <th></th>
-            <th>Number of recipes</th>
             <th>Remove user</th>
         </tr>
         <tr th:each="user : ${allUsers}">
             <td><a th:href="@{/user/details/{username}(username = ${user.username})}" th:text="${user.username}"></a></td>
             <td></td>
-            <td th:text="${user.numberOfRecipes}"></td>
             <td><a th:href="@{/user/delete/{username}(username = ${user.username})}">Delete</a></td>
         </tr>
         </table>
