@@ -24,6 +24,7 @@ public class ByteSizeSecurityConfig {
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/recipe/overview").permitAll()
+                .requestMatchers("/recipe/detail/*").permitAll()
                 .requestMatchers("/user/overview").permitAll()
                 .requestMatchers("/user/save").permitAll()
                 .requestMatchers("/login").permitAll()
