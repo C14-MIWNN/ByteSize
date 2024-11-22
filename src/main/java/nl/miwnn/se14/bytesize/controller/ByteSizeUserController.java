@@ -67,6 +67,8 @@ public class ByteSizeUserController {
             return "userOverview";
         }
 
+        userDtoToBeSaved.setRole("USER");
+
         byteSizeUserService.save(userDtoToBeSaved);
         return "redirect:/user/overview";
     }

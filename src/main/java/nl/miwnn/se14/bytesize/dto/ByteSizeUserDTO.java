@@ -15,6 +15,7 @@ public class ByteSizeUserDTO {
     @Size(min = 6)
     private String password;
     private String passwordConfirm;
+    private String role;
 
     public String getUsername() {
         return username;
@@ -38,5 +39,13 @@ public class ByteSizeUserDTO {
 
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

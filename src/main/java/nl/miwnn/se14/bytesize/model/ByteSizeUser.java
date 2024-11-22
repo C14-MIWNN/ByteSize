@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,7 @@ import java.util.Set;
 
 @Entity
 public class ByteSizeUser implements UserDetails {
+    private String ROLE_PREFIX = "ROLE_";
 
     @Id @GeneratedValue
     private Long userId;
@@ -23,17 +25,10 @@ public class ByteSizeUser implements UserDetails {
     @Column(unique = true)
     private String username;
     private String password;
+    private String role;
 
     @OneToMany(mappedBy = "byteSizeUser", cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
-
-    public int getNumberOfRecipes() {
-        int count = 0;
-        for (Recipe recipe : recipes) {
-            count++;
-        }
-        return count;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -57,7 +52,12 @@ public class ByteSizeUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        List<GrantedAuthority> list = new ArrayList<>();
+
+        list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
+//        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+
+        return list;
     }
 
     public Long getUserId() {
@@ -77,12 +77,23 @@ public class ByteSizeUser implements UserDetails {
         this.username = username;
     }
 
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getROLE_PREFIX() {
+        return ROLE_PREFIX;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

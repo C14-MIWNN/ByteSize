@@ -22,7 +22,11 @@ public class ByteSizeSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/", "/recipe/overview", "/user/overview").permitAll()
+                .requestMatchers("/").permitAll()
+                .requestMatchers("/recipe/overview").permitAll()
+                .requestMatchers("/user/overview").permitAll()
+                .requestMatchers("/user/save").permitAll()
+                .requestMatchers("/login").permitAll()
                 .requestMatchers("/webjars/**", "/css/**").permitAll()
                 .anyRequest().authenticated()
             )

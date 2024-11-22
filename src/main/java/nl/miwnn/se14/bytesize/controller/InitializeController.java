@@ -38,7 +38,8 @@ public class InitializeController {
     }
 
     private void initializeDB() {
-        makeByteSizeUser("Admin", "Admin");
+        makeByteSizeUser("Admin", "Admin", "USER");
+        makeByteSizeUser("Heron", "123456", "USER");
 
         Recipe indianChickenCurry = makeRecipe(
                 "Indian Chicken Curry",
@@ -72,10 +73,11 @@ public class InitializeController {
         return recipe;
     }
 
-    private ByteSizeUser makeByteSizeUser(String username, String password) {
+    private ByteSizeUser makeByteSizeUser(String username, String password, String role) {
         ByteSizeUser user = new ByteSizeUser();
         user.setUsername(username);
         user.setPassword(password);
+        user.setRole(role);
         byteSizeUserService.save(user);
         return user;
     }
