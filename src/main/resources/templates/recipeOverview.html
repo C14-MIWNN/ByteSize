@@ -11,13 +11,12 @@
 
     <h1>Recipes</h1>
 
-<div class="container">
+    <div class="container">
 
-    <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
+        <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
+        <a th:href="@{/recipe/new}" class="btn btn-custom px-4 fw-bold" type="button">Add new recipe</a>
 
-    <a th:href="@{/recipe/new}" class="btn btn-custom px-4 fw-bold" type="button">Add new recipe</a>
-
-</div>
+    </div>
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>

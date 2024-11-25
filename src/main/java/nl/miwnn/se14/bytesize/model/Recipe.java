@@ -19,6 +19,7 @@ public class Recipe {
     @Column(columnDefinition = "TEXT")
     private String recipeDescription;
     private String imageUrl;
+    private String ingredients;
 
     @ManyToOne
     private ByteSizeUser byteSizeUser;
@@ -53,5 +54,13 @@ public class Recipe {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 }

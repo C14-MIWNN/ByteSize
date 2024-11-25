@@ -44,30 +44,36 @@ public class InitializeController {
         Recipe indianChickenCurry = makeRecipe(
                 "Indian Chicken Curry",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
-                "https://cdn.pixabay.com/photo/2022/06/07/20/52/curry-7249247_1280.jpg");
+                "https://cdn.pixabay.com/photo/2022/06/07/20/52/curry-7249247_1280.jpg",
+                "ingredients");
         Recipe beefSteak = makeRecipe(
                 "Beef Steak",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
-                "https://cdn.pixabay.com/photo/2023/03/21/16/55/beef-7867701_1280.jpg");
+                "https://cdn.pixabay.com/photo/2023/03/21/16/55/beef-7867701_1280.jpg",
+                "ingredients");
         Recipe chickenLiverWrappedInBacon = makeRecipe(
                 "Chicken Liver Wrapped In Bacon",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
-                "https://cdn.pixabay.com/photo/2019/04/20/12/08/chicken-liver-4141673_1280.jpg");
+                "https://cdn.pixabay.com/photo/2019/04/20/12/08/chicken-liver-4141673_1280.jpg",
+                "ingredients");
         Recipe fruitSaladWithYoghurt = makeRecipe(
                 "Fruit Salad With Yoghurt",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
-                "https://cdn.pixabay.com/photo/2019/01/12/16/21/breakfast-3928800_1280.jpg");
+                "https://cdn.pixabay.com/photo/2019/01/12/16/21/breakfast-3928800_1280.jpg",
+                "ingredients");
         Recipe bestCheesecakeEver = makeRecipe(
                 "Best Cheesecake Ever",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
-                "https://cdn.pixabay.com/photo/2019/07/21/19/52/cheesecake-4353495_1280.jpg");
+                "https://cdn.pixabay.com/photo/2019/07/21/19/52/cheesecake-4353495_1280.jpg",
+                "ingredients");
     }
 
-    private Recipe makeRecipe(String recipeTitle, String recipeDescription, String imageUrl) {
+    private Recipe makeRecipe(String recipeTitle, String recipeDescription, String imageUrl, String ingredients) {
         Recipe recipe = new Recipe();
         recipe.setRecipeTitle(recipeTitle);
         recipe.setRecipeDescription(recipeDescription);
         recipe.setImageUrl(imageUrl);
+        recipe.setIngredients(ingredients);
 
         recipeRepository.save(recipe);
         return recipe;
