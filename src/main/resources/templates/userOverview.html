@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
     <title>User Overview</title>
 </head>
@@ -16,19 +17,19 @@
     <table class="table table-striped">
         <tr>
             <th>User</th>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
             <th></th>
             <th>Remove user</th>
+            </div>
         </tr>
         <tr th:each="user : ${allUsers}">
             <td><a th:href="@{/user/details/{username}(username = ${user.username})}" th:text="${user.username}"></a></td>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
             <td></td>
-            <td><a th:href="@{/user/delete/{username}(username = ${user.username})}">Delete</a></td>
+                <td><a th:href="@{/user/delete/{username}(username = ${user.username})}">Delete</a></td>
+            </div>
         </tr>
         </table>
-    <button type="button"
-            class="btn btn-custom px-4 fw-bold"
-            data-bs-toggle="modal" data-bs-target="#newForm">Register
-    </button>
 </div>
 
 </div>

@@ -12,7 +12,7 @@ public class ByteSizeUserDTO {
     @NotBlank
     private String username;
 
-    @Size(min = 6)
+    @Size(min = 6, max = 64)
     private String password;
     private String passwordConfirm;
     private String role;
