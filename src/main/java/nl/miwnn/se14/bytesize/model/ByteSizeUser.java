@@ -1,6 +1,7 @@
 package nl.miwnn.se14.bytesize.model;
 
 import jakarta.persistence.*;
+import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.random.RandomGenerator;
 
 /**
  * @author Heron
@@ -57,6 +59,17 @@ public class ByteSizeUser implements UserDetails {
         list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
 
         return list;
+    }
+
+    public int generateReferralCode() {
+        int code = (int) Math.round((Math.random() * 1000));
+        code = (code * 2) - 1;
+
+        if (role.equals("ADMIN")) {
+            code = code * 8;
+        }
+
+        return code;
     }
 
     public Long getUserId() {
