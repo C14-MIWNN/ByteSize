@@ -4,6 +4,7 @@ import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
 import nl.miwnn.se14.bytesize.service.mapper.ByteSizeUserMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,6 +27,10 @@ public class ByteSizeUserService implements UserDetailsService {
     public ByteSizeUserService(ByteSizeUserRepository byteSizeUserRepository, PasswordEncoder passwordEncoder) {
         this.byteSizeUserRepository = byteSizeUserRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    public static String getUsername() {
+        return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Recipe {
     private String ingredients;
 
     @ManyToOne
-    private ByteSizeUser byteSizeUser;
+    private ByteSizeUser recipeCreator;
 
     public Long getRecipeId() {
         return recipeId;
@@ -62,5 +62,13 @@ public class Recipe {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public ByteSizeUser getRecipeCreator() {
+        return recipeCreator;
+    }
+
+    public void setRecipeCreator(ByteSizeUser recipeCreator) {
+        this.recipeCreator = recipeCreator;
     }
 }

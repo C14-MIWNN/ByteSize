@@ -1,14 +1,15 @@
 package nl.miwnn.se14.bytesize.controller;
 
+import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import nl.miwnn.se14.bytesize.model.Recipe;
+import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
 import nl.miwnn.se14.bytesize.repositories.RecipeRepository;
+import nl.miwnn.se14.bytesize.service.ByteSizeUserService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -20,9 +21,11 @@ import java.util.Optional;
 @Controller
 public class RecipeController {
     private final RecipeRepository recipeRepository;
+    private final ByteSizeUserRepository byteSizeUserRepository;
 
-    public RecipeController(RecipeRepository recipeRepository) {
+    public RecipeController(RecipeRepository recipeRepository, ByteSizeUserRepository byteSizeUserRepository) {
         this.recipeRepository = recipeRepository;
+        this.byteSizeUserRepository = byteSizeUserRepository;
     }
 
     @GetMapping("/recipe/overview")
@@ -74,8 +77,19 @@ public class RecipeController {
             return "redirect:/recipe/overview";
         }
 
+        ByteSizeUser user = findByteSizeUserByUsername();
+        recipeToBeSaved.setRecipeCreator(user);
+
         recipeRepository.save(recipeToBeSaved);
         return "redirect:/recipe/overview";
+    }
+
+    private ByteSizeUser findByteSizeUserByUsername() {
+        String username = ByteSizeUserService.getUsername();
+        Optional<ByteSizeUser> userOptional = byteSizeUserRepository.findByUsername(username);
+        return userOptional.orElseThrow(
+            () -> new UsernameNotFoundException(
+                String.format("Username '%s' was not found in the database", username)));
     }
 
     @GetMapping("/recipe/delete/{recipeId}")

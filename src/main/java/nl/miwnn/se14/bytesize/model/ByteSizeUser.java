@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-import java.util.random.RandomGenerator;
 
 /**
  * @author Heron
@@ -29,8 +27,8 @@ public class ByteSizeUser implements UserDetails {
     private String password;
     private String role;
 
-    @OneToMany(mappedBy = "byteSizeUser", cascade = CascadeType.ALL)
-    private Set<Recipe> recipes;
+    @OneToMany(mappedBy = "recipeCreator", cascade = CascadeType.ALL)
+    private List<Recipe> recipes;
 
     @Override
     public boolean isAccountNonExpired() {
@@ -63,10 +61,10 @@ public class ByteSizeUser implements UserDetails {
 
     public int generateReferralCode() {
         int code = (int) Math.round((Math.random() * 1000));
-        code = (code * 2);
+        code = (code * 2) - 1;
 
         if (role.equals("ADMIN")) {
-            code = code * 7;
+            code = code * 8;
         }
 
         return code;
