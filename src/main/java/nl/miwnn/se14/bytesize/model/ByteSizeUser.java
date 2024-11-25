@@ -63,10 +63,10 @@ public class ByteSizeUser implements UserDetails {
 
     public int generateReferralCode() {
         int code = (int) Math.round((Math.random() * 1000));
-        code = (code * 2) - 1;
+        code = (code * 2);
 
         if (role.equals("ADMIN")) {
-            code = code * 8;
+            code = code * 7;
         }
 
         return code;
