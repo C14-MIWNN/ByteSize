@@ -55,7 +55,6 @@ public class ByteSizeUser implements UserDetails {
         List<GrantedAuthority> list = new ArrayList<>();
 
         list.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
-//        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
 
         return list;
     }

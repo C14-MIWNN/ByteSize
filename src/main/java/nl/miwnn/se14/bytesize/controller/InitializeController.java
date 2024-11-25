@@ -38,7 +38,7 @@ public class InitializeController {
     }
 
     private void initializeDB() {
-        makeByteSizeUser("Admin", "Admin", "USER");
+        makeByteSizeUser("Admin", "AdminPassword", "ADMIN");
         makeByteSizeUser("Heron", "123456", "USER");
 
         Recipe indianChickenCurry = makeRecipe(

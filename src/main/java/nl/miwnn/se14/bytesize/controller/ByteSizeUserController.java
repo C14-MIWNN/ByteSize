@@ -38,6 +38,15 @@ public class ByteSizeUserController {
         return "userOverview";
     }
 
+    @GetMapping("/register")
+    public String showUserRegister(Model datamodel) {
+        datamodel.addAttribute("allUsers", byteSizeUserService.getAllUsers());
+        datamodel.addAttribute("formUser", new ByteSizeUserDTO());
+        datamodel.addAttribute("formModalHidden", false);
+
+        return "userOverview";
+    }
+
     @GetMapping("/details/{username}")
     public String showUserDetailPage(@PathVariable("username") String username, Model datamodel) {
         Optional<ByteSizeUser> byteSizeUser = byteSizeUserRepository.findByUsername(username);

@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * @author Heron
- * Purpose for the class
+ * Services the User Repository
  */
 
 @Service
