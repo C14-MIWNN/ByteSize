@@ -26,13 +26,13 @@
                 <a class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" th:href="@{/user/register}">Register</a>
                 </a>
-                <a class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+                <a class="nav-item" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
                     <a class="nav-link" th:href="@{/user/overview}">Users</a>
                 </a>
                 <a class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" th:href="@{/login}"><i class="bi bi-person-circle h2 btn-group-vertical"></i> Sign in</a>
                 </a>
-                <div class="dropdown" sec:authorize="hasRole('ROLE_USER')">
+                <div class="dropdown" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
                     <a class="btn btn-custom2 dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle h2 btn-group-vertical"></i> <span th:text="${#authentication.name}"></span>
                     </a>

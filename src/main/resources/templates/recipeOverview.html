@@ -14,7 +14,7 @@
     <div class="container">
 
         <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
-        <a th:href="@{/recipe/new}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER')">Add new recipe</a>
+        <a th:href="@{/recipe/new}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Add new recipe</a>
 
     </div>
 </div>

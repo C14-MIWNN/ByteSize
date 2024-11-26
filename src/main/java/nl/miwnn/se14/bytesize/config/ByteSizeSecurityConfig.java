@@ -44,12 +44,4 @@ public class ByteSizeSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-    @Bean
-    public RoleHierarchy roleHierarchy() {
-        RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
-        String hierarchy = "ROLE_ADMIN > ROLE_USER";
-        roleHierarchy.setHierarchy(hierarchy);
-        return roleHierarchy;
-    }
 }
