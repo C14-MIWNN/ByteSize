@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import nl.miwnn.se14.bytesize.repositories.ByteSizeUserRepository;
+import nl.miwnn.se14.bytesize.repositories.RecipeRepository;
 import nl.miwnn.se14.bytesize.service.ByteSizeUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +23,13 @@ import java.util.Optional;
 public class ByteSizeUserController {
     private final ByteSizeUserService byteSizeUserService;
     private final ByteSizeUserRepository byteSizeUserRepository;
+    private final RecipeRepository recipeRepository;
 
     public ByteSizeUserController(ByteSizeUserService byteSizeUserService,
-                                  ByteSizeUserRepository byteSizeUserRepository) {
+                                  ByteSizeUserRepository byteSizeUserRepository, RecipeRepository recipeRepository) {
         this.byteSizeUserService = byteSizeUserService;
         this.byteSizeUserRepository = byteSizeUserRepository;
+        this.recipeRepository = recipeRepository;
     }
 
     @GetMapping("/overview")
@@ -56,6 +59,7 @@ public class ByteSizeUserController {
         }
 
         datamodel.addAttribute("byteSizeUserToBeShown", byteSizeUser.get());
+        datamodel.addAttribute("allRecipes", recipeRepository.findAll());
 
         return "userDetails";
     }

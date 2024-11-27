@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -87,6 +90,7 @@ public class RecipeController {
     private ByteSizeUser findByteSizeUserByUsername() {
         String username = ByteSizeUserService.getUsername();
         Optional<ByteSizeUser> userOptional = byteSizeUserRepository.findByUsername(username);
+
         return userOptional.orElseThrow(
             () -> new UsernameNotFoundException(
                 String.format("Username '%s' was not found in the database", username)));
@@ -97,5 +101,49 @@ public class RecipeController {
         recipeRepository.findByRecipeId(recipeId).ifPresent((recipeRepository::delete));
         return "redirect:/recipe/overview";
     }
+
+    @PostMapping("/search")
+    private String showRecipesBySearchTerm(
+        @ModelAttribute("searchForm") Recipe recipe, BindingResult result, Model datamodel) {
+
+        Optional<List<Recipe>> searchResults = recipeRepository.findByRecipeTitle(recipe.getRecipeTitle());
+
+        if (searchResults.isEmpty()) {
+            result.rejectValue("name", "search.results.empty",
+                "We found no recipes with your search term.");
+            return "recipeOverview";
+        }
+
+        if (result.hasErrors()) {
+            return "landingpage";
+        }
+
+        datamodel.addAttribute("allRecipes", searchResults.get());
+        return "recipeOverview";
+    }
+
+    public List<Recipe> getRandomRecipes(int numberOfRecipes) {
+        List<Recipe> allRecipes = recipeRepository.findAll();
+        Collections.shuffle(allRecipes);
+        ArrayList<Recipe> randomRecipes = new ArrayList<>();
+
+        for (int recipeIndex = 0; recipeIndex < numberOfRecipes; recipeIndex++) {
+            randomRecipes.add(allRecipes.get(recipeIndex));
+        }
+        return randomRecipes;
+    }
+
+    @GetMapping("/")
+    private String showLandingpage(Model datamodel) {
+        datamodel.addAttribute("allRecipes", recipeRepository.findAll());
+
+        List<Recipe> randomRecipes = getRandomRecipes(4);
+
+        datamodel.addAttribute("randomAmountOfRecipes", randomRecipes);
+
+        return "landingpage";
+    }
+
+
 
 }

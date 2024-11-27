@@ -16,10 +16,15 @@
 <div class="container">
     <h2>About Me</h2>
     <p>I'm a casual cook that likes to experiment</p>
+
+    <h2>My Recipes</h2>
+    <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
+
 </div>
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>
 <div th:replace="~{fragments/general :: bottomScripts}"></div>
+
 </body>
 </html>

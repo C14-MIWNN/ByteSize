@@ -25,10 +25,12 @@ public class ByteSizeSecurityConfig {
         httpSecurity
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/").permitAll()
+                .requestMatchers("/search").permitAll()
                 .requestMatchers("/recipe/overview").permitAll()
                 .requestMatchers("/recipe/detail/*").permitAll()
                 .requestMatchers("/user/overview").permitAll()
                 .requestMatchers("/user/register").permitAll()
+                .requestMatchers("/user/details/*").permitAll()
                 .requestMatchers("/user/save").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/webjars/**", "/css/**").permitAll()

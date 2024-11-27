@@ -54,7 +54,7 @@
         Nulla lobortis blandit ante non tincidunt. Aliquam vel aliquet augue, eu egestas velit. Nam auctor scelerisque dolor, quis convallis mi lacinia at. Praesent nec magna fermentum justo eleifend tincidunt vel quis eros. Aliquam ornare aliquet elit, non blandit leo sodales a. Nullam faucibus, est et accumsan aliquet, orci odio consectetur sapien, quis tristique nunc mauris vitae ex. Donec posuere tellus vel libero pulvinar, quis ultrices velit tempus. Vestibulum hendrerit risus non ante pulvinar, sagittis faucibus libero consectetur. Maecenas sed mattis diam, at porta ipsum. Pellentesque imperdiet odio augue, eu vulputate justo porttitor sed. Proin consequat efficitur neque. Fusce vel urna congue, rhoncus nisi ac, auctor augue. Sed sed enim dui.
     </p>
 
-    <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER')">Edit Recipe</a>
+    <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Edit Recipe</a>
 
     <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_ADMIN')">Delete Recipe</a>
 

@@ -11,4 +11,5 @@ import java.util.Optional;
  */
 public interface ByteSizeUserRepository extends JpaRepository<ByteSizeUser, Long> {
     Optional<ByteSizeUser> findByUsername(String username);
+    Optional<ByteSizeUser> findByUserId(Long userId);
 }

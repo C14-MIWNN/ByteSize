@@ -8,12 +8,14 @@
 <div th:replace="~{fragments/general :: navbar}"></div>
 
 <div class="main">
-<div class="container">
-
-</div>
+    <h1>Welcome to ByteSize!</h1>
+    <div class="container">
+        <div th:replace="~{fragments/recipe :: recipeCards(${randomAmountOfRecipes})}"></div>
+    </div>
 </div>
 
 <div th:replace="~{fragments/general :: footer}"></div>
 <div th:replace="~{fragments/general :: bottomScripts}"></div>
+
 </body>
 </html>

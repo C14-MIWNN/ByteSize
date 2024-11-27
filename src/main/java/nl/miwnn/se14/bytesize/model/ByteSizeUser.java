@@ -1,7 +1,6 @@
 package nl.miwnn.se14.bytesize.model;
 
 import jakarta.persistence.*;
-import nl.miwnn.se14.bytesize.dto.ByteSizeUserDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Heron
@@ -105,5 +105,13 @@ public class ByteSizeUser implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }

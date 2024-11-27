@@ -1,22 +1,29 @@
 package nl.miwnn.se14.bytesize.unittests;
 
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author Heron
  * Purpose for the class
  */
 
-public class GenerateReferralCodeTests {
+public class generateReferralCodeTests {
 
-//    @Test
-//    void userReferralCodeIsUneven() {
-//        //Arrange
-//        //Act
-//        //Assert
-//    }
+    @Test
+    void userReferralCodeIsUneven() {
+        //Arrange
+        ByteSizeUser user = new ByteSizeUser();
+        user.setRole("USER");
+
+        //Act
+        int code = user.generateReferralCode() %2;
+
+        //Assert
+        assertEquals(1, code);
+    }
 
     @Test
     void adminReferralCodeIsEven() {
@@ -28,7 +35,7 @@ public class GenerateReferralCodeTests {
         int code = user.generateReferralCode() %2;
 
         //Assert
-        Assertions.assertEquals(0, code);
+        assertEquals(0, code);
     }
 
     @Test
@@ -41,7 +48,7 @@ public class GenerateReferralCodeTests {
         int code = user.generateReferralCode() %8;
 
         //Assert
-        Assertions.assertEquals(0, code);
+        assertEquals(0, code);
     }
 
 }
