@@ -30,16 +30,12 @@ public class generateReferralCodeTests {
         //Arrange
         ByteSizeUser user = new ByteSizeUser();
         user.setRole("USER");
-        boolean isCodeNotZero = true;
 
         //Act
         int code = user.generateReferralCode();
-        if (code == 0) {
-            isCodeNotZero = false;
-        }
 
         //Assert
-        assertTrue(isCodeNotZero);
+        assertNotEquals(0, code);
     }
 
     @Test
@@ -47,16 +43,12 @@ public class generateReferralCodeTests {
         //Arrange
         ByteSizeUser user = new ByteSizeUser();
         user.setRole("USER");
-        boolean isCodeNegative = true;
 
         //Act
         int code = user.generateReferralCode();
-        if (code > 0) {
-            isCodeNegative = false;
-        }
 
         //Assert
-        assertFalse(isCodeNegative);
+        assertTrue(code > 0);
     }
 
     @Test
