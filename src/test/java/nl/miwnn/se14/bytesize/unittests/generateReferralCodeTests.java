@@ -3,7 +3,7 @@ package nl.miwnn.se14.bytesize.unittests;
 import nl.miwnn.se14.bytesize.model.ByteSizeUser;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Heron
@@ -85,4 +85,29 @@ public class generateReferralCodeTests {
         assertEquals(0, code);
     }
 
+    @Test
+    void checkIfReferralCodeIsZero() {
+        // Arrange
+        ByteSizeUser byteSizeUser = new ByteSizeUser();
+        byteSizeUser.setRole("Admin");
+
+        // Act
+        int code = byteSizeUser.generateReferralCode();
+
+        // Assert
+        assertNotEquals(0, code, "code should be 0 if byteSizeUser is Admin");
+    }
+
+    @Test
+    void checkIfReferralCodeIsPositive() {
+        // Arrange
+        ByteSizeUser byteSizeUser = new ByteSizeUser();
+        byteSizeUser.setRole("Admin");
+
+        // Act
+        int code = byteSizeUser.generateReferralCode();
+
+        // Assert
+        assertTrue(code > 0, "code must be higher than 0");
+    }
 }
