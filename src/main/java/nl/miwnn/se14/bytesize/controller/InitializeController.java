@@ -9,9 +9,6 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 /**
  * @author Heron
  * Initializes some database

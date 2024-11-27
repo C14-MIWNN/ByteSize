@@ -66,7 +66,7 @@ public class generateReferralCodeTests {
         user.setRole("ADMIN");
 
         //Act
-        int code = user.generateReferralCode() %2;
+        int code = user.generateReferralCode() % 2;
 
         //Assert
         assertEquals(0, code);
@@ -79,7 +79,7 @@ public class generateReferralCodeTests {
         user.setRole("ADMIN");
 
         //Act
-        int code = user.generateReferralCode() %8;
+        int code = user.generateReferralCode() % 8;
 
         //Assert
         assertEquals(0, code);
