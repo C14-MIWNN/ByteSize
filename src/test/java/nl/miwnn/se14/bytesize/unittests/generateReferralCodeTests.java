@@ -26,6 +26,40 @@ public class generateReferralCodeTests {
     }
 
     @Test
+    void userReferralCodeIsNotZero() {
+        //Arrange
+        ByteSizeUser user = new ByteSizeUser();
+        user.setRole("USER");
+        boolean isCodeZero = true;
+
+        //Act
+        int code = user.generateReferralCode();
+        if (code == 0) {
+            isCodeZero = false;
+        }
+
+        //Assert
+        assertEquals(true, isCodeZero);
+    }
+
+    @Test
+    void userReferralCodeIsNotNegative() {
+        //Arrange
+        ByteSizeUser user = new ByteSizeUser();
+        user.setRole("USER");
+        boolean isCodeNegative = true;
+
+        //Act
+        int code = user.generateReferralCode();
+        if (code > 0) {
+            isCodeNegative = false;
+        }
+
+        //Assert
+        assertEquals(false, isCodeNegative);
+    }
+
+    @Test
     void adminReferralCodeIsEven() {
         //Arrange
         ByteSizeUser user = new ByteSizeUser();
