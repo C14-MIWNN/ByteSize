@@ -179,10 +179,12 @@ public class InitializeController {
                         "4 large eggs room temperature (lightly beaten\n",
                 pietje,
                 "1. Preheat over to 325F (1660C)\n" +
+                        " \n" +
                         "2. Prepare Graham Cracker crust first by combining graham cracker crumbs, sugar and brown sugar, and stirring well. \n" +
                         "Add melted butter and use a fork to combine ingredients well.\n" +
                         "1 ½ cups graham cracker crumbs,2 Tablespoons sugar,\n" +
                         "1 Tablespoon brown sugar,7 Tablespoons butter\n" +
+                        " \n" +
                         "3. Pour crumbs into a 9” Springform pan and press firmly into the bottom and up the sides of your pan. Set aside.\n" +
                         " \n" +
                         "Cheesecake\n" +

@@ -16,6 +16,11 @@ pre {
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
+img {
+    max-height: 300px;
+    margin-bottom: 10px;
+}
+
 body {
     background-color: #D1C0AF;
     font-family: 'Helvetica', 'Arial', sans-serif;
