@@ -78,7 +78,12 @@ public class InitializeController {
                 "instructions");
     }
 
-    private Recipe makeRecipe(String recipeTitle, String recipeDescription, String imageUrl, String ingredients, ByteSizeUser recipeCreator, String instructions) {
+    private Recipe makeRecipe(String recipeTitle,
+                              String recipeDescription,
+                              String imageUrl,
+                              String ingredients,
+                              ByteSizeUser recipeCreator,
+                              String instructions) {
         Recipe recipe = new Recipe();
         recipe.setRecipeTitle(recipeTitle);
         recipe.setRecipeDescription(recipeDescription);
