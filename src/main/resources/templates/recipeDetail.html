@@ -9,9 +9,13 @@
 
 <div class="main">
 
+
     <h1><span th:text="${recipe.recipeTitle}"></span></h1>
 
-<div class="container">
+    <p class="card-text">
+    <p class="small">Created by <a th:href="@{/user/details/{username}(username = ${recipe.recipeCreator.username})}" th:text="${recipe.recipeCreator.username}"></a></p>
+
+    <div class="container">
 
     <div class="sidenav">
         <a href="#ingredients">Ingredients</a>

@@ -18,7 +18,9 @@
     <p>I'm a casual cook that likes to experiment</p>
 
     <h2>My Recipes</h2>
-    <div th:replace="~{fragments/recipe :: recipeCards(${allRecipes})}"></div>
+    <tr th:each="recipe : ${createdRecipes}">
+    <div th:replace="~{fragments/recipe :: recipeCards(${recipe})}"></div>
+    </tr>
 
 </div>
 </div>
