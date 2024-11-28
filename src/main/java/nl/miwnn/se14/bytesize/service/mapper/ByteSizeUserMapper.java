@@ -14,6 +14,7 @@ public class ByteSizeUserMapper {
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
         user.setRole(dto.getRole());
+        user.setUserAboutMe(dto.getUserAboutMe());
 
         return user;
     }

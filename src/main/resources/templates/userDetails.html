@@ -15,7 +15,7 @@
 
 <div class="container">
     <h2>About Me</h2>
-    <p>I'm a casual cook that likes to experiment</p>
+    <p><span th:text="${byteSizeUserToBeShown.userAboutMe}"></span></p>
 
     <h2>My Recipes</h2>
     <tr th:each="recipe : ${createdRecipes}">

@@ -26,6 +26,7 @@ public class ByteSizeUser implements UserDetails {
     private String username;
     private String password;
     private String role;
+    private String userAboutMe;
 
     @OneToMany(mappedBy = "recipeCreator", cascade = CascadeType.ALL)
     private List<Recipe> recipes;
@@ -113,5 +114,17 @@ public class ByteSizeUser implements UserDetails {
 
     public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public void setROLE_PREFIX(String ROLE_PREFIX) {
+        this.ROLE_PREFIX = ROLE_PREFIX;
+    }
+
+    public String getUserAboutMe() {
+        return userAboutMe;
+    }
+
+    public void setUserAboutMe(String userAboutMe) {
+        this.userAboutMe = userAboutMe;
     }
 }

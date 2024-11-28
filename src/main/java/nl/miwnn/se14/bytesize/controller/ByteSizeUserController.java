@@ -54,6 +54,7 @@ public class ByteSizeUserController {
     public String showUserDetailPage(@PathVariable("username") String username, Model datamodel) {
         Optional<ByteSizeUser> byteSizeUser = byteSizeUserRepository.findByUsername(username);
 
+
         if (byteSizeUser.isEmpty()) {
             return "redirect:/overview";
         }

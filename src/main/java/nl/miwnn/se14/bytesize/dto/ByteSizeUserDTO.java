@@ -16,6 +16,7 @@ public class ByteSizeUserDTO {
     private String password;
     private String passwordConfirm;
     private String role;
+    private String userAboutMe;
 
     public String getUsername() {
         return username;
@@ -47,5 +48,13 @@ public class ByteSizeUserDTO {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getUserAboutMe() {
+        return userAboutMe;
+    }
+
+    public void setUserAboutMe(String userAboutMe) {
+        this.userAboutMe = userAboutMe;
     }
 }

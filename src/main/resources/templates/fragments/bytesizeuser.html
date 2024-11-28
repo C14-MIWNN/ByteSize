@@ -19,6 +19,17 @@
         </div>
         <div class="row g-3 align-items-center">
             <div class="col-5">
+                <label for="userAboutMe" class="col-form-label">About me</label>
+            </div>
+            <div class="col-7">
+                <textarea id="userAboutMe" class="form-control" aria-describedby="userAboutMeHelpInline" th:field="*{userAboutMe}" rows="3"></textarea>
+            </div>
+            <div class="col-12">
+                <span id="userAboutMeHelpInline" class="form-text" th:if="${#fields.hasErrors('userAboutMe')}" th:errors="*{userAboutMe}"></span>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-5">
                 <label for="password" class="col-form-label">Password</label>
             </div>
             <div class="col-7">
