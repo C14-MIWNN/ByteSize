@@ -35,7 +35,7 @@ public class InitializeController {
     }
 
     private void initializeDB() {
-        ByteSizeUser admin = makeByteSizeUser("Admin", "AdminPassword", "ADMIN", "I am the Admin of the site! BOW BEFORE MY POWER!");
+        ByteSizeUser admin = makeByteSizeUser("Admin", "AdminPassword", "ADMIN", "I am the Admin of the site!\nBOW BEFORE MY POWER!");
         ByteSizeUser heron = makeByteSizeUser("Heron", "123456", "USER", "I am a generic account made for testing purposes");
         ByteSizeUser yvonne = makeByteSizeUser("Yvonne", "123456", "USER", "Another generic account, please ignore!");
         ByteSizeUser jantje = makeByteSizeUser("Jantje", "123456", "USER", "Time to make some great food!");
@@ -52,7 +52,7 @@ public class InitializeController {
                 "Beef Steak",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at odio nec sem ultrices cursus.",
                 "https://cdn.pixabay.com/photo/2023/03/21/16/55/beef-7867701_1280.jpg",
-                "ingredients",
+                "ingredients\ningredients\ningredients",
                 heron,
                 "instructions");
         Recipe chickenLiverWrappedInBacon = makeRecipe(
