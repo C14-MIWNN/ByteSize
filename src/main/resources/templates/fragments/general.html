@@ -27,7 +27,7 @@
                 <a class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" th:href="@{/user/register}">Register</a>
                 </a>
-                <a class="nav-item" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">
+                <a class="nav-item">
                     <a class="nav-link" th:href="@{/user/overview}">Users</a>
                 </a>
                 <a class="nav-item" sec:authorize="isAnonymous()">
