@@ -26,19 +26,13 @@
         <img class="img-fluid rounded overflow-hidden shadow-lg" th:src="*{recipe.imageUrl}" th:alt="|Cover for *{recipeTitle}|">
     </div>
     <h2>DESCRIPTION</h2>
-    <p>
-        <span th:text="${recipe.recipeDescription}"></span>
-    </p>
+    <pre th:text="${recipe.recipeDescription}"></pre>
 
     <h2 id="ingredients">INGREDIENTS</h2>
-    <p>
-        <span th:text="${recipe.ingredients}"></span>
-    </p>
+    <pre th:text="${recipe.ingredients}"></pre>
 
     <h2 id="instructions">INSTRUCTIONS</h2>
-    <p>
-        <span th:text="${recipe.instructions}"></span>
-    </p>
+    <pre th:text="${recipe.instructions}"></pre>
 
     <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Edit Recipe</a>
 

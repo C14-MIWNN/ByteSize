@@ -18,9 +18,12 @@ public class Recipe {
 
     @Column(columnDefinition = "TEXT")
     private String recipeDescription;
+
     private String imageUrl;
+
     @Column(columnDefinition = "TEXT")
     private String ingredients;
+
     @Column(columnDefinition = "TEXT")
     private String instructions;
 
