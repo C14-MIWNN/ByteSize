@@ -19,7 +19,9 @@
         <a href="#step-2">Step Two</a>
         <a href="#step-3">Step Three</a>
     </div>
-
+    <div class="col-4 mt-0">
+        <img class="img-fluid rounded overflow-hidden shadow-lg" th:src="*{recipe.imageUrl}" th:alt="|Cover for *{recipeTitle}|">
+    </div>
     <h2>DESCRIPTION</h2>
     <p>
         <span th:text="${recipe.recipeDescription}"></span>
