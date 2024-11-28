@@ -81,7 +81,7 @@ public class generateReferralCodeTests {
     void checkIfReferralCodeIsZero() {
         // Arrange
         ByteSizeUser byteSizeUser = new ByteSizeUser();
-        byteSizeUser.setRole("Admin");
+        byteSizeUser.setRole("ADMIN");
 
         // Act
         int code = byteSizeUser.generateReferralCode();
@@ -94,7 +94,7 @@ public class generateReferralCodeTests {
     void checkIfReferralCodeIsPositive() {
         // Arrange
         ByteSizeUser byteSizeUser = new ByteSizeUser();
-        byteSizeUser.setRole("Admin");
+        byteSizeUser.setRole("USER");
 
         // Act
         int code = byteSizeUser.generateReferralCode();

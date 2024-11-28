@@ -50,6 +50,17 @@
         </div>
         <div class="row g-3 align-items-center">
             <div class="col-3">
+                <label for="instructions" class="col-form-label">Instructions</label>
+            </div>
+            <div class="col-6">
+                <textarea id="instructions" class="form-control" aria-describedby="instructionsHelpInline" th:field="*{instructions}" rows="3"></textarea>
+            </div>
+            <div class="col-6">
+                <span id="instructionsHelpInline" class="form-text" th:if="${#fields.hasErrors('instructions')}" th:errors="*{instructions}"></span>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-3">
                 <label for="imageUrl" class="col-form-label">Image URL</label>
             </div>
             <div class="col-6">

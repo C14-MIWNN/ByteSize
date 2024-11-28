@@ -19,7 +19,10 @@ public class Recipe {
     @Column(columnDefinition = "TEXT")
     private String recipeDescription;
     private String imageUrl;
+    @Column(columnDefinition = "TEXT")
     private String ingredients;
+    @Column(columnDefinition = "TEXT")
+    private String instructions;
 
     @ManyToOne
     private ByteSizeUser recipeCreator;
@@ -70,5 +73,13 @@ public class Recipe {
 
     public void setRecipeCreator(ByteSizeUser recipeCreator) {
         this.recipeCreator = recipeCreator;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }
