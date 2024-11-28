@@ -35,11 +35,11 @@ public class InitializeController {
     }
 
     private void initializeDB() {
-        ByteSizeUser admin = makeByteSizeUser("Admin", "AdminPassword", "ADMIN");
-        ByteSizeUser heron = makeByteSizeUser("Heron", "123456", "USER");
-        ByteSizeUser yvonne = makeByteSizeUser("Yvonne", "123456", "USER");
-        ByteSizeUser jantje = makeByteSizeUser("Jantje", "123456", "USER");
-        ByteSizeUser pietje = makeByteSizeUser("Pietje", "123456", "USER");
+        ByteSizeUser admin = makeByteSizeUser("Admin", "AdminPassword", "ADMIN", "I am the Admin of the site! BOW BEFORE MY POWER!");
+        ByteSizeUser heron = makeByteSizeUser("Heron", "123456", "USER", "I am a generic account made for testing purposes");
+        ByteSizeUser yvonne = makeByteSizeUser("Yvonne", "123456", "USER", "Another generic account, please ignore!");
+        ByteSizeUser jantje = makeByteSizeUser("Jantje", "123456", "USER", "Time to make some great food!");
+        ByteSizeUser pietje = makeByteSizeUser("Pietje", "123456", "USER", "Jantje told me to get on here");
 
         Recipe indianChickenCurry = makeRecipe(
                 "Indian Chicken Curry",
@@ -91,11 +91,13 @@ public class InitializeController {
         return recipe;
     }
 
-    private ByteSizeUser makeByteSizeUser(String username, String password, String role) {
+    private ByteSizeUser makeByteSizeUser(String username, String password, String role, String userAboutMe) {
         ByteSizeUser user = new ByteSizeUser();
         user.setUsername(username);
         user.setPassword(password);
         user.setRole(role);
+        user.setUserAboutMe(userAboutMe);
+
         byteSizeUserService.save(user);
         return user;
     }
