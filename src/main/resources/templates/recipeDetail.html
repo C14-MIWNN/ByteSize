@@ -36,7 +36,7 @@
 
     <a th:href="@{/recipe/edit/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Edit Recipe</a>
 
-    <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_ADMIN')">Delete Recipe</a>
+    <a th:href="@{/recipe/delete/{recipeId}(recipeId = ${recipe.recipeId})}" class="btn btn-custom px-4 fw-bold" type="button" sec:authorize="hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')">Delete Recipe</a>
 
 </div>
 </div>
