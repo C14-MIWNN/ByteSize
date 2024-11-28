@@ -11,6 +11,10 @@ p {
     color: #7B5E49;
 }
 
+pre {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
 body {
     background-color: #D1C0AF;
     font-family: 'Helvetica', 'Arial', sans-serif;
